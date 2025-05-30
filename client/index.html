@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M-Powering Teachers · Lessons</title>
+
+  <!-- Google Fonts & Icons (Material Design) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="src/index.css" />
+</head>
+<body>
+  <!-- ── Top Bar ──────────────────────────────────────────────────── -->
+  <header class="app-bar">
+    <span class="app-title">M-Powering Teachers</span>
+    <div class="user-info">
+      <span>Hello, Anantrao Chinta</span>
+      <span class="material-icons" aria-hidden="true">account_circle</span>
+    </div>
+  </header>
+
+  <!-- ── Page Content ────────────────────────────────────────────── -->
+  <main>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+      <h1>Lessons</h1>
+      <button class="btn-primary" id="addLessonBtn">
+        <span class="material-icons" aria-hidden="true">add</span> ADD NEW LESSON
+      </button>
+    </div>
+
+    <!-- Storage indicator -->
+    <div class="storage">
+      <span>Used 34.47 kB</span>
+      <div class="storage-bar"></div>
+      <span>125.00 MB</span>
+    </div>
+
+    <!-- Lessons card -->
+    <section class="card">
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <input id="searchInput" type="text" placeholder="Search by title or content" />
+        <button class="icon-btn material-icons" title="Search" onclick="applySearch()">search</button>
+        <button id="exportBtn" class="icon-btn material-icons" title="Export" disabled>download</button>
+        <button id="deleteBtn" class="icon-btn material-icons" title="Delete" disabled>delete</button>
+        <button class="icon-btn material-icons" title="Refresh" onclick="refreshTable()">refresh</button>
+      </div>
+
+      <!-- Data table -->
+      <table id="lessonsTable">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="masterCheckbox" onclick="toggleAll(this)" /></th>
+            <th>Title</th>
+            <th>Assets</th>
+            <th>Analysis</th>
+            <th style="text-align:right;">Created at</th>
+          </tr>
+        </thead>
+        <tbody><!-- rows injected via JS --></tbody>
+      </table>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <label>
+          Rows per page:
+          <select id="rowsPerPage" onchange="changeRowsPerPage(this.value)">
+            <option>10</option>
+            <option>25</option>
+            <option>50</option>
+          </select>
+        </label>
+        <span id="pageInfo">1–1 of 1</span>
+        <button id="prevPage" onclick="prevPage()" disabled class="material-icons" aria-label="Previous">chevron_left</button>
+        <button id="nextPage" onclick="nextPage()" disabled class="material-icons" aria-label="Next">chevron_right</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── JavaScript ──────────────────────────────────────────────── -->
+  <script src="index.js"></script>
+</body>
+</html>

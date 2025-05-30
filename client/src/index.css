@@ -1,0 +1,176 @@
+:root {
+  --primary: #0b63ce;
+  --primary-dark: #084fa5;
+  --gray-light: #f6f7f9;
+  --border: #e0e0e0;
+  --text-light: #6f6f6f;
+  --success: #2e7d32;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background: #fafafa;
+  color: #1d1d1d;
+}
+
+/* ─── TOP APP BAR ─────────────────────────────────────────────── */
+.app-bar {
+  height: 64px;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+.app-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+/* ─── PAGE LAYOUT ─────────────────────────────────────────────── */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 72px;
+}
+h1 {
+  margin: 0 0 24px;
+  font-size: 28px;
+}
+
+/* Storage bar */
+.storage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+.storage-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--gray-light);
+  position: relative;
+  border-radius: 2px;
+}
+.storage-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(34.47 / 125 * 100%);
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+/* Card & Toolbar */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.toolbar input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 14px;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  font-size: 20px;
+  color: var(--text-light);
+  cursor: pointer;
+}
+.icon-btn:disabled {
+  color: #c0c0c0;
+  cursor: default;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 14px;
+}
+th {
+  background: var(--gray-light);
+  font-weight: 500;
+}
+td a {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+.status-ready {
+  color: var(--success);
+  font-weight: 500;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+.pagination button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--primary-dark);
+  cursor: pointer;
+  line-height: 1;
+}
+.pagination button:disabled {
+  color: #c0c0c0;
+  cursor: default;
+}
