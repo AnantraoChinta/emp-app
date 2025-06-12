@@ -1,4 +1,4 @@
-cat <<'EOF' >> .gitignore
+# cat <<'EOF' >> .gitignore
 # Python
 .venv/
 venv/
