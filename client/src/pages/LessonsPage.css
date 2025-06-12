@@ -1,0 +1,97 @@
+/* ─── Landing / Lessons page‑specific tweaks ──────────────── */
+
+/* Page header with title + CTA */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .page-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 500;
+  }
+  
+  /* Storage quota bar directly beneath the header */
+  .storage {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .storage-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--gray-light);
+    position: relative;
+    border-radius: 2px;
+  }
+  .storage-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: calc(34.47 / 125 * 100%); /* demo fill – replace dynamically */
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  
+  /* Lessons data‑table overrides */
+  .card table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .card th,
+  .card td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .card th {
+    background: var(--gray-light);
+    font-weight: 500;
+  }
+  
+  /* Ready status */
+  .status-ready {
+    color: var(--success);
+    font-weight: 500;
+  }
+  
+  /* Pagination row */
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  .pagination button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--primary-dark);
+    cursor: pointer;
+    line-height: 1;
+  }
+  .pagination button:disabled {
+    color: #c0c0c0;
+    cursor: default;
+  }
+  
+  /* Helper for visually hidden checkbox label (accessibility) */
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  

@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
+// src/App.jsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LessonsPage from "./pages/LessonsPage";
+import UploadPage from "./pages/UploadPage";
 
-function App() {
-  const [msg, setMsg] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/hello")
-      .then(res => res.json())
-      .then(data => setMsg(data.msg))
-      .catch(console.error);
-  }, []);
-
-  return <h1>{msg || "Loading…"}</h1>;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LessonsPage />} />
+        <Route path="/upload" element={<UploadPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App;
