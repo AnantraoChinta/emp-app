@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  api:
+    build: ./server
+    ports: ["5000:5000"]
+    volumes: ["./server:/app"]
+    depends_on: [speech]
+  speech:
+    build: ./speech_backend   # Dockerfile sets up Python deps + whisper weights
+    ports: ["8000:8000"]
+  web:
+    build: ./client
+    ports: ["5173:5173"]
+    depends_on: [api]

@@ -40,3 +40,7 @@
 .read-the-docs {
   color: #888;
 }
+
+.timeline li.teacher { background:#e3f2fd }
+.timeline li.student { background:#fffde7 }
+.timeline .ts { float:right; color:#999; font-size:12px }
