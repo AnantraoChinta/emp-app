@@ -3,15 +3,38 @@ from fastapi.responses import JSONResponse
 import whisperx               # wrapper around Whisper v3 + VAD
 import torch
 from pyannote.audio import Pipeline
+import torch, whisperx
+
+import os
+
+HF_TOKEN = os.getenv("HF_TOKEN")
+
+# ddiar_model = Pipeline.from_pretrained(
+#     "pyannote/speaker-diarization@2023.09",
+#     use_auth_token=os.getenv("HF_TOKEN"),
+# )
+diar_model = Pipeline.from_pretrained("pyannote/speaker-diarization@2.1",
+                                    use_auth_token=os.getenv("HF_TOKEN"))
+
+
+
 
 app = FastAPI()
 
 # 2-A  Whisper v3 ASR -------------------------------------------------
-asr_model = whisperx.load_model("large-v3", device="cuda" if torch.cuda.is_available() else "cpu")
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+asr_model = whisperx.load_model(
+    "large-v3",                 # pick a smaller model if RAM is tight
+    device=device,
+    compute_type="int8" if device == "cpu" else "float16",
+)
+
 
 # 3-B  Speaker diarization -------------------------------------------
-diar_model = Pipeline.from_pretrained("pyannote/speaker-diarization@2024.10",
-                                      use_auth_token="YOUR_HF_TOKEN")
+# diar_model = Pipeline.from_pretrained("pyannote/speaker-diarization@2024.10",
+#                                       use_auth_token="YOUR_HF_TOKEN")
 
 @app.post("/transcribe")
 async def transcribe(file: UploadFile):
@@ -21,7 +44,12 @@ async def transcribe(file: UploadFile):
         f.write(await file.read())
 
     # 2. transcription + word timestamps
-    asr_out = asr_model.transcribe(wav_path, batch_size=24, return_char_alignments=False)
+    asr_out = asr_model.transcribe(
+        wav_path,
+        batch_size=24,
+        word_timestamps=True      # keep if you need word-level times
+    )
+
 
     # 3. diarization (RT ≈ 0.6 × audio length on GPU)
     diar = diar_model(wav_path)
