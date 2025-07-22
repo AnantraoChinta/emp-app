@@ -1,4 +1,6 @@
 # cat <<'EOF' >> .gitignore
+client/src/assets/recording1.mp4
+
 # Python
 .venv/
 venv/
