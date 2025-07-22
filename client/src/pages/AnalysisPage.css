@@ -1,0 +1,425 @@
+:root {
+    --blue: #1976d2;
+    --green: #cddc39;
+    --gray: #f5f5f5;
+    --gray-dark: #555;
+    --font: "Segoe UI", Roboto, sans-serif;
+  }
+  
+  .analysis-wrapper {
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+    font-family: var(--font);
+    line-height: 1.6;
+    color: #222;
+  }
+  
+  .analysis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  
+  .analysis-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .analysis-tabs {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    flex-wrap: wrap;
+  }
+  
+  .tab {
+    color: var(--gray-dark);
+    cursor: pointer;
+    padding-bottom: 4px;
+  }
+  
+  .tab.active {
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+  }
+  
+  .section {
+    margin-bottom: 36px;
+  }
+  
+  label[for=\"speaker-select\"] {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  
+  #speaker-select {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .warning-box {
+    margin-top: 16px;
+    padding: 16px;
+    background: #fff8e1;
+    border-left: 4px solid #ff9800;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .bar-chart {
+    display: flex;
+    height: 28px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .bar.teacher {
+    background-color: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bar.student {
+    background-color: var(--green);
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .blocks .label {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .block-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 16px;
+  }
+  
+  .block {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .block.blue {
+    background-color: var(--blue);
+  }
+  
+  .block.green {
+    background-color: var(--green);
+  }
+  
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .summary-tile {
+    background: var(--gray);
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  
+  .summary-tile strong {
+    font-size: 18px;
+    display: block;
+    margin-top: 6px;
+  }
+  
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  
+  .legend label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .timeline-placeholder {
+    height: 200px;
+    background: #fafafa;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  
+  .footer-nav {
+    margin-top: 40px;
+  }
+  
+  .timeline-chart {
+    position: relative;
+    margin-top: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 16px;
+    background: #f9f9f9;
+  }
+  
+  .timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 4px;
+    padding: 0 4px;
+  }
+  
+  .teacher-label {
+    color: #2196f3;
+    font-weight: 500;
+  }
+  
+  .student-label {
+    color: #cddc39;
+    font-weight: 500;
+  }
+    
+  /* carousel controls */
+.timeline-carousel {
+    position: relative;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    padding: 24px 48px;
+    background: #fff;
+  }
+  
+  .carousel-tabs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--primary-dark, #1976d2);
+    cursor: pointer;
+    padding: 0 8px;
+    user-select: none;
+  }
+  .carousel-arrow.left  { left: 8px;  }
+  .carousel-arrow.right { right: 8px; }
+  
+  .carousel-arrow:disabled { opacity: 0.3; cursor: default; }
+  
+  .timeline-viewport {
+    overflow: hidden;
+    min-height: 110px;           /* keeps height stable */
+  }
+  
+  .timeline-slide {
+    width: 100%;
+  }
+
+  .summary-tile.with-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .summary-arrow {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .blurb-tooltip {
+    visibility: hidden;
+    background: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    z-index: 10;
+  }
+  
+  .summary-arrow:hover .blurb-tooltip {
+    visibility: visible;
+  }
+  
+  .summary-arrow.up { color: green; }
+  .summary-arrow.down { color: red; }
+  
+  .summary-content {
+    text-align: right;
+  }
+
+  .alignment-graphs-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line if space is limited */
+    justify-content: center; /* Centers items horizontally */
+    align-items: flex-start; /* Aligns items to the start of the cross-axis (top) */
+    gap: 30px; /* Adds space between the graph components */
+    padding: 20px; /* Add some padding around the container */
+    background-color: #f0f0f0; /* Optional: to visualize the container */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.transcript-section {
+  width: 100%;
+  max-width: 800px; /* Match max-width of graphs for consistency */
+  margin-top: 30px; /* Space between graphs and transcript */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.transcript-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.transcript-content {
+  max-height: 350px; /* Set a max height to make it scrollable */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 15px; /* Add padding for scrollbar */
+}
+
+.transcript-line {
+  display: flex;
+  align-items: flex-start; /* Align items to the top of the line */
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  position: relative; /* For positioning action icons */
+}
+
+.transcript-line:last-child {
+  margin-bottom: 0; /* No margin on the last line */
+}
+
+.speaker-label {
+  font-weight: bold;
+  min-width: 120px; /* Give speaker name a fixed width */
+  margin-right: 15px;
+  padding-left: 10px; /* Space for the left border color */
+  border-left: 4px solid; /* For speaker color bar */
+  line-height: 1.4;
+}
+
+.speaker-label .timestamp {
+  font-weight: normal;
+  color: #777;
+  font-size: 0.85em;
+  display: block; /* Puts timestamp on a new line */
+}
+
+.dialogue {
+  flex-grow: 1; /* Allow dialogue to take up remaining space */
+  line-height: 1.4;
+  color: #444;
+}
+
+.transcript-actions {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  display: flex;
+  gap: 8px; /* Space between icons */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.transcript-line:hover .transcript-actions {
+  opacity: 1; /* Show on hover */
+}
+
+.action-icon {
+  font-size: 0.9em;
+  color: #999;
+  cursor: pointer;
+  background-color: #eee;
+  border-radius: 3px;
+  padding: 3px 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.action-icon:hover {
+  background-color: #ddd;
+  color: #555;
+}
+
+/* Specific colors for speaker labels based on your screenshot's styling */
+.student .speaker-label { border-left-color: #cddc39; } /* Yellowish-green from your timeline */
+.teacher .speaker-label { border-left-color: #2196f3; } /* Blue from your timeline */
+.multiple-students .speaker-label { border-left-color: #999; } /* A neutral color for others */
+
+
+/* Adjustments to existing classes for better integration */
+.slide-content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  /* Add padding-bottom if needed to ensure spacing from footer */
+  padding-bottom: 30px;
+}
+
+.video-section {
+  margin-bottom: 30px; /* Space below video before graphs */
+}
+
+.alignment-graphs-section {
+  margin-top: 20px; /* Space between video-section and graphs-section */
+  /* Ensure this section also has appropriate max-width */
+  max-width: 800px;
+}
+
+.timeline-viewport {
+  /* Adjust this if the content goes too far down */
+  /* If you find the entire main box scrolling, but not the transcript,
+     you might need to ensure the parent container doesn't have a fixed height
+     and that this max-height and overflow-y on .transcript-content is working. */
+  overflow-y: visible; /* Allow content to extend if not explicitly meant to scroll here */
+}
